@@ -1,178 +1,506 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splice, Focus and Relife:<br>High-Resolution Periodic Pattern Generation</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Xicheng Lan</title>
+  <link href="css/bootstrap.css" rel='stylesheet' type='text/css' />
+  <link rel="shortcut icon" type="image/x-icon" href="images/misc/profile.jpg">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+  <!-- Bulma Version 0.7.5-->
+  <link rel="stylesheet" href="https://unpkg.com/bulma@0.7.5/css/bulma.min.css" />
+  <link href='css/style.css?_t=20200916' rel='stylesheet' type='text/css'>
+  <script defer src="font-awesome/js/brands.min.js"></script>
+  <script defer src="font-awesome/js/regular.min.js"></script>
+  <script defer src="font-awesome/js/fontawesome.min.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            padding: 10px;
-            text-align: center;
-            background-color: #ffffff;
-        }
-        h1 {
-            font-size: 2.5em;
-            line-height: 1.2em;
-        }
-        .authors {
-            margin-top: 0;
-            font-size: 1.2em; /* 增大字体大小 */
-            text-align: center; /* 居中对齐 */
-            margin-bottom: 0;
-        }
-        .authors a {
-            color: blue;
-            text-decoration: none;
-            margin: 0;
-        }
-        .institution {
-            font-style: italic;
-            margin-top: 0;
-            font-size: 1.1em; /* 增大机构信息的字体 */
-            color:#555555
-        }
-        .buttons {
-            margin-top: 10px;
-        }
-        .button {
-            background-color: #000;
-            color: #fff;
-            padding: 10px 20px; /* 保持原来的按钮大小 */
-            font-size: 1em; /* 保持原来的按钮字体大小 */
-            border: none;
-            margin: 10px;
-            cursor: not-allowed; /* 禁用按钮（由于链接尚未可用） */
-            display: inline-flex;
-            align-items: center;
-            border-radius: 30px; /* 两边圆角 */
-        }
-        .button img {
-            width: 24px;
-            margin-right: 10px;
-        }
+      .red {
+        color: rgb(238, 76, 44);
+        font-style: normal;
+      }
+      .blue {
+        color: rgb(238, 76, 44);
+        font-style: normal;
+      }
+       
+      #intro {
+       margin-top: 0em !important;
+      }
+      
+      .content h3 {
+       margin-bottom: 1em!important;
+       margin-top: 2em!important;
+      }
 
-        video {
-            margin-top: 30px;
-            width: 40%;
+      .content figure {
+       width: 90%;
+       display: flex;
+       align-items: center;
+       overflow: hidden;
+       margin-left: auto!important;
+       margin-right: auto!important;
+      }
+      
+      .columns:not(:last-child) {
+       margin-bottom: 1.75rem!important;
+      }
+
+      #sidebar {
+        width: 75%;
+      }
+
+      @media screen and (min-width: 769px), print {
+        .column.is-2_5, .column.is-2-tablet {
+          flex: none;
+          width: 20%;
         }
-        .overview {
-            margin-top: 40px;
-            width: 40%; /* 占据中间三分之一 */
-            margin-left: auto;
-            margin-right: auto;
-            text-align: justify;
-            font-size: 1.2em; /* 增大 overview 部分的字体大小 */
-        }
-        h2 {
-            font-size: 2em;
-            margin-top: 40px;
-        }
-        .images {
-            margin-top: 40px;
-            text-align: center; /* 图像居中 */
-        }
-        .images .group {
-            margin-bottom: 40px;
-        }
-        .images .group .prompt {
-            font-style: italic;
-            margin-bottom: 10px;
-        }
-        .images .group img {
-            width: 30%;
-            margin: 10px;
-        }
-        .references {
-            margin-top: 40px;
-        }
-        .references a {
-            color: blue;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-    </style>
+      }
+</style>
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" crossorigin="anonymous"></script>
 </head>
+
+
 <body>
+  <section class="section">
+    <div class="container">
+      <div class="columns">
+        <div class="column is-2_5">
+          <div class="sticky">
+            <figure class="image" style="width: 11.6rem; margin-top: 6px;">
+              <img src="images/misc/profile_img.jpg">
+            </figure>
+            <div class="content">
+              <h2 style="margin-top: 1em">Xicheng Lan</h2>
+              <p>
+                <b>STRUCT@PKU</b><br/> 
+                Beijing, China<br/> 
+              </p>
+            </div>
+            <!-- social network icons -->
+            <div class="social">
+              <a href="https://github.com/Dongfengzy" target="_blank">
+                <span class="fab fa-github fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a;"></span>
+              </a>
+              <!-- <a href="https://scholar.google.com/citations?user=UyKX7ZsAAAAJ" target="_blank">
+                <span class="fab fa-google fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a; margin-left: 15px"></span>
+              </a>
+              <a href="https://www.linkedin.com/in/%E6%9C%88%E5%9D%A4-%E6%88%B4-19b33421a/" target="_blank">
+                <span class="fab fa-linkedin fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a; margin-left: 15px"></span>
+              </a> -->
+              <a href="lanxicheng@stu.pku.edu.cn" target="_blank">
+                <span class="fa-regular fa-envelope fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a; margin-left: 15px"></span>
+              </a>
+            </div>
+            <!-- slogon -->
+          
+            <div id="sidebar" class="menu sticky is-hidden-mobile">
+              <p class="menu-label"><b>Quick Links</b></p>
+              <ul class="menu-list">
+                <li><a href="#intro">About Me</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <!-- <li><a href="#awards">Awards</a></li>
+                <li><a href="#services">Services</a></li> -->
+                <li><a href="#interests">Interests</a></li>
+              </ul>
+            </div>
 
-    <h1>Splice, Focus and Relife:<br>High-Resolution Periodic Pattern Generation</h1>
+            <div class="slogon">
+              <p>Welcome to my homepage!</p> 
+            </div>
+            <!-- <div>
+              <a href="https://clustrmaps.com/site/1btxt" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?cl=0e1633&w=215&t=n&d=n74bl4ZAst384EnLUu0gpdoA6A_gY_udu62VgWFA7js&co=ffffff&ct=8b8787"></a>
+            </div> -->
+          </div>
 
-    <div class="authors">
-        <p>
-            Xicheng Lan, Wenshuo Gao, Luyao Zhang,
-            <a href="http://39.96.165.147/people/liujiaying.html" target="_blank">Jiaying Liu</a>,
-            <a href="https://williamyang1991.github.io/" target="_blank">Shuai Yang</a>
-        </p>
-    </div>
+          
 
-    <div class="institution">
-        Wangxuan Institute of Computer Technology, Peking University, Beijing, China
-    </div>
-
-    <div class="buttons">
-        <button class="button">
-            <img src="materials/pdf.png" alt="PDF">
-            Paper (coming soon)
-        </button>
-        <button class="button">
-            <img src="materials/git.png" alt="GitHub">
-            Code (coming soon)
-        </button>
-    </div>
-
-
-    <video autoplay loop muted>
-        <source src="materials/video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-
-    <h2>Overview</h2>
-    <div class="overview">
-        <p>We propose a novel text-driven framework for generating periodic and high-resolution patterns. We introduce a new training-free Splice-and-Focus Mechanism, which enhances the model by constraining latent features and modifying the attention mechanism to produce natural and strictly periodic patterns. Additionally, we present a ReLife Pipeline, which integrates super-resolution and guided image synthesis to enhance pattern resolution while eliminating artifacts and distortions. Our framework produces patterns of superior quality.</p>
-    </div>
-
-    <h2>Framework</h2>
-    <img src="materials/framework.png" alt="Framework Diagram" style="width: 50%;">
-
-    <h2>Example Results</h2>
-    <div class="images">
-        <div class="group">
-            <p class="prompt">"purple flowers, green leaves, white background"</p>
-            <img src="materials/image1_1.png" alt="Image 1">
-            <img src="materials/image1_2.png" alt="Image 2">
-            <img src="materials/image1_3.png" alt="Image 3">
         </div>
-        <div class="group">
-            <p class="prompt">"blue flowers, light blue leaves, white background"</p>
-            <img src="materials/image2_1.png" alt="Image 4">
-            <img src="materials/image2_2.png" alt="Image 5">
-            <img src="materials/image2_3.png" alt="Image 6">
+        <div class="column right-panel">
+          <div class="content">
+
+
+            <!--About Me-->
+            <h2 id="intro">About Me</h2>
+            <p>
+              I am currently a senior undergraduate at <a href="https://eecs.pku.edu.cn/" target="_blank">Electronics Engineering and Computer Science</a>, <a href="https://www.pku.edu.cn/" target="_blank">Peking University</a>, major in Computer Science. 
+              I've joined in the Spatial and Temporal Restoration, Understanding and Compression Team (<a href="http://39.96.165.147/struct.html" target="_blank">STRUCT</a>) as an undergraduate intern, supervised by <a href="http://39.96.165.147/people/liujiaying.html" target="_blank">Prof. Jiaying Liu</a> and <a href="https://williamyang1991.github.io/" target="_blank">Prof. Shuai Yang</a>. 
+              
+            </p>
+
+            <p>
+              I am interested in image generation and stylization, currently focusing on the development of high-quality stylized image generation products. Please believe that AI generation can bring us more surprises and make life more vibrant and colorful!
+            </p>
+            
+
+            <!--Experience-->
+            <h2 id="experiences" style="margin-bottom: 25px;">Experiences</h2>
+            
+            <article class="columns">
+              
+              <div class="column is-2" >
+                <div class="image">
+                  <a href="http://39.96.165.147/struct.html" target="_blank" style="font-size: 20px;"></a>
+                  <img src="images/misc/STRUCT_logo.jpg" >
+                </div>
+              </div>
+             
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Research Assistant</b> | STRUCT@PKU, Wangxuan Institute of Computer Technology<br>
+                    Time: Mar 2024 - Present. Supervisor: <a href="http://39.96.165.147/people/liujiaying.html" target="_blank">Prof. Jiaying Liu</a> and <a href="https://williamyang1991.github.io/" target="_blank">Prof. Shuai Yang</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="columns">
+              <div class="column is-2" >
+                <div class="svg">            
+                  <a href="https://www.pku.edu.cn/" target="_blank" style="font-size: 20px;">
+                  <img src="images/misc/PKU_logo.png" >
+                </a>
+                </div>
+              </div>      
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Undergraduate</b> | Peking University<br>
+                    Time: Sep 2021 - Jul 2025.  
+                  </p>
+                </div>
+              </div>
+            </article>
+
+  
+
+            <!--Publications-->
+            <h2 id="publications">
+              Publications
+              <!-- <span style="font-size: 1rem;margin-left: 1rem;position: relative;bottom: .2rem;">
+                <a href="https://scholar.google.com/citations?user=UyKX7ZsAAAAJ" target="_blank" style="font-size: 20px;">
+                  [Google Scholar]
+                </a>
+              </span> -->
+            </h2>
+
+            <!--List of publications-->
+            
+            <!-- <article class="columns">
+              <div class="column is-3">
+                <figure class="image">
+                  <img src=".\images\publications\pbc.gif">
+                </figure>
+              </div>
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Paint Bucket Colorization Using Anime Character Color Design Sheets</b><br>
+                    <b>Arxiv Preprint</b></i> &nbsp;<br>
+                    <b>Yuekun Dai</b>, Qinyue Li, Shangchen Zhou, Yihang Luo, Chongyi Li, and Chen Change Loy.<br>                   
+                    <a href="https://arxiv.org/abs/2410.19424" target="_blank">[Paper]</a>             
+                    <a href="https://github.com/ykdai/BasicPBC" target="_blank">[Code]</a>
+                    <a href="https://www.youtube.com/watch?v=nNnPUItGvSo" target="_blank">[Video]</a> 
+                    <a href="https://drive.google.com/file/d/12fSGMcLsJZdrnAL9JOt8FfRnbLXItaGm/view" target="_blank">[Dataset]</a><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="columns">
+              <div class="column is-3">
+                <figure class="image">
+                  <img src=".\images\publications\InclusionMatching.gif">
+                </figure>
+              </div>
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Learning Inclusion Matching for Animation Paint Bucket Colorization</b><br>                   
+                    Computer Vision and Pattern Recognition, <b>CVPR 2024</b></i> &nbsp;<br>  
+                    <b>Yuekun Dai</b>, Shangchen Zhou, Qinyue Li, Chongyi Li, and Chen Change Loy.<br>                   
+                    <a href="https://arxiv.org/abs/2403.18342" target="_blank">[Paper]</a>
+                    <a href="https://ykdai.github.io/projects/InclusionMatching" target="_blank">[Project Page]</a>
+                    <a href="https://github.com/ykdai/BasicPBC" target="_blank">[Code]</a>
+                    <a href="https://www.youtube.com/watch?v=nNnPUItGvSo" target="_blank">[Video]</a> 
+                    <a href="https://drive.google.com/file/d/1gIJVKyeIu4PQshZnHG6TWj5kSZjnMb2_/view" target="_blank">[Dataset]</a><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="columns">
+              <div class="column is-3">
+                <figure class="image">
+                  <img src=".\images\publications\Flare7Kpp.png">
+                </figure>
+              </div>
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Flare7K++: Mixing Synthetic and Real Datasets for Nighttime Flare Removal and Beyond</b><br>
+                    Transactions on Pattern Analysis and Machine Intelligence, <b>TPAMI 2024</b><br>
+                    <b>Yuekun Dai</b>, Chongyi Li, Shangchen Zhou, Ruicheng Feng, Yihang Luo, and Chen Change Loy.<br>
+                    <a href="https://ieeexplore.ieee.org/document/10541091" target="_blank">[Paper]</a>                   
+                    <a href="https://arxiv.org/abs/2306.04236" target="_blank">[Arxiv]</a>
+                    <a href="https://github.com/ykdai/Flare7K" target="_blank">[Code]</a>
+                    <a href="https://drive.google.com/file/d/1PPXWxn7gYvqwHX301SuWmjI7IUUtqxab/view" target="_blank">[Dataset]</a><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+            
+            <article class="columns">
+              <div class="column is-3">
+                <figure class="image">
+                  <img src=".\images\publications\BracketFlare.png">
+                </figure>
+              </div>
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Nighttime Smartphone Reflective Flare Removal Using Optical Center Symmetry Prior</b><br>
+                    Computer Vision and Pattern Recognition, <b>CVPR 2023</b></i> &nbsp;<br> 
+                    <em class="red"><b>Highlight (top 2.5%, 3 top ratings)</b></em><br>                    
+                    <b>Yuekun Dai</b>, Yihang Luo, Shangchen Zhou, Chongyi Li, and Chen Change Loy.<br>
+                    <a href="https://arxiv.org/abs/2303.15046" target="_blank">[Paper]</a>                   
+                    <a href="https://ykdai.github.io/projects/BracketFlare" target="_blank">[Project Page]</a>
+                    <a href="https://www.youtube.com/watch?v=-RwNKJsEfS4" target="_blank">[Video]</a>
+                    <a href="https://github.com/ykdai/BracketFlare" target="_blank">[Code]</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="columns">
+              <div class="column is-3">
+                <figure class="image">
+                  <img src=".\images\publications\Beauty_REC_dataset.png">
+                </figure>
+              </div>
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>BeautyREC: Robust, Efficient, and Content-preserving Makeup Transfer</b><br>
+                    Computer Vision and Pattern Recognition Workshop, <b>CVPRW 2023</b></i> &nbsp;<em class="red"></em><br>
+                    Qixin Yan, Chunle Guo, Jixin Zhao, <b>Yuekun Dai</b>, Chen Change Loy, and Chongyi Li.<br>                   
+                    <a href="https://arxiv.org/abs/2212.05855" target="_blank">[Paper]</a>
+                    <a href="https://li-chongyi.github.io/BeautyREC_files/" target="_blank">[Project Page]</a>
+                    <a href="https://li-chongyi.github.io/BeautyREC_files/" target="_blank">[Code]</a>
+                  </p>
+                </div>
+              </div>
+            </article>
+
+            <article class="columns">
+              <div class="column is-3">
+                <figure class="image">
+      
+                  <video  muted="muted" width="300" class="publogo"   controls= "autoPlay" onended="this.currentTime = 0; this.play();" autoplay="" src=".\images\publications\7K_flare.mp4"> <source src="logo/7K_flare.mp4" type="video/mp4"></video>
+                </figure>
+              </div>
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Flare7K: A Phenomenological Nighttime Flare Removal Dataset</b><br>
+                    Neural Information Processing Systems, <b>NeurIPS 2022</b></i> &nbsp;<em class="red"></em><br>
+                    <b>Yuekun Dai</b>, Chongyi Li, Shangchen Zhou, Ruicheng Feng, and Chen Change Loy.<br>                   
+                    <a href="https://arxiv.org/abs/2210.06570" target="_blank">[Paper]</a>
+                    <a href="https://ykdai.github.io/projects/Flare7K" target="_blank">[Project Page]</a>
+                    <a href="https://github.com/ykdai/Flare7K" target="_blank">[Code]</a>
+                    <a href="https://www.youtube.com/watch?v=CR3VFj4NOQM&t=1s" target="_blank">[Video]</a>
+                    <a href="https://drive.google.com/file/d/1PPXWxn7gYvqwHX301SuWmjI7IUUtqxab/view" target="_blank">[Dataset]</a><br>
+                  </p>
+                </div>
+              </div>
+            </article> -->
+
+            <!--Technical Reports
+            <h2 id="Technical Reports">
+              Technical Reports
+              <span style="font-size: 1rem;margin-left: 1rem;position: relative;bottom: .2rem;">
+              </span>
+            </h2>
+            
+            <article class="columns">
+              <div class="column is-3">
+                <figure class="image">
+                  <img src=".\images\publications\Flare7Kpp.png">
+                </figure>
+              </div>
+              <div class="column">
+                <div class="content">
+                  <p>
+                    <b>Flare7K++: Mixing Synthetic and Real Datasets for Nighttime Flare Removal and Beyond</b><br>
+                    arXiv Preprint, 2023<br>
+                    <b>Yuekun Dai</b>, Chongyi Li, Shangchen Zhou, Ruicheng Feng, Yihang Luo, and Chen Change Loy.<br>                   
+                    <a href="https://arxiv.org/abs/2306.04236" target="_blank">[Paper]</a>
+                    <a href="https://github.com/ykdai/Flare7K" target="_blank">[Code]</a>
+                    <a href="https://drive.google.com/file/d/1PPXWxn7gYvqwHX301SuWmjI7IUUtqxab/view" target="_blank">[Dataset]</a><br>
+                  </p>
+                </div>
+              </div>
+            </article>
+            -->
+            
+            <!--Awards-->
+            <!-- <h2 id="awards">Awards</h2>
+            <ul>
+              <li><a href="https://bmvc2022.org/people/reviewers/" target="_blank">Outstanding Reviewer</a>, BMVC. 2022</li>         
+              <li>Outstanding Freshman Scholarship of School of Electronics Engineering and Computer Science, Peking University, 2016</li>
+              <li>First Prize in the 32nd National level Chinese Physics Olympiad (CPHO) (Rank 16), 2015</li>
+              <li>First Prize in 32nd Chinese Physics Olympiad (CPHO) in Hubei province (Rank 1), 2015</li>
+              <li>First Prize in 31st Chinese Physics Olympiad (CPHO) in Hubei province, 2014</li>
+            </ul>
+
+            <h2 id="services">Services</h2>
+            <b>Conference and Workshop Committee</b>
+            <ul>
+              <li>Co-organizer, <a href="https://mipi-challenge.org/MIPI2023/" target="_blank">2nd Mobile Intelligent Photograph and Imaging Workshop (MIPI)</a>, CVPR 2023</li>
+              <li>Co-organizer, <a href="https://mipi-challenge.org/MIPI2024/" target="_blank">3rd Mobile Intelligent Photograph and Imaging Workshop (MIPI)</a>, CVPR 2024</li>
+            </ul>
+              <b>Conference Reviewer</b>:
+              <ul>
+                <li>CVPR 2024 </li>
+                <li>AAAI 2022 </li>
+                <li>MIPI@ECCV 2022,2023</li>
+                <li>NeurIPS 2022,2023 </li>
+                <li>BMVC2022</li>
+              </ul>
+              <b>Journal Reviewer</b>:
+              <ul>
+                <li>Transactions on Pattern Analysis and Machine Intelligence (TPAMI)</li>
+                <li>International Journal of Computer Vision (IJCV)</li>
+                <li>Transactions on Image Processing (TIP)</li>
+                <li>Transactions on Visualization and Computer Graphics (TVCG)</li>
+                <li>Transactions on Circuits and Systems for Video Technology (TCSVT)</li>
+                <li>Transactions on Automation Science and Engineering (TASE)</li>
+                <li>Transactions on Multimedia Computing Communications and Applications (TOMM)</li>
+                <li>Signal, Image and Video Processing (SIVP)</li>
+                <li>Journal of Oceanic Engineering (JOE)</li>
+                
+              </ul> -->
+            
+            <h2 id="interests">Interests</h2>
+            
+              <b>Dao Culture</b>: I enjoy studying Chinese classical culture, particularly Dao culture. 
+              By "Dao culture," it does not mean just Daoism, but the enduring thread of Chinese classical philosophy since the pre-Qin era, encompassing Confucianism, Daoism, and more. 
+              I believe that Chinese classical philosophy can integrate with modern science to produce astonishing results. If you're interested, I recommend the following books:</br></p>
+              <p>
+              <ul>
+              <li>The Great Learning (Daxue)</li>
+              <li>The Doctrine of the Mean (Zhongyong)</li>
+              <li>Tao Te Ching (Daodejing)</li>
+              <li>The Analects (Lunyu)</li>
+              </ul>
+
+              <b>Handicrafts</b>: 
+              Outside of research, I enjoy creating handmade items, including but not limited to traditional Chinese thread-bound books, wooden models, and robotic projects with electronic controls. 
+              If you share the same interests, feel free to connect with me!
+            
+
+          </div>
         </div>
-        <div class="group">
-            <p class="prompt">"white flowers, green leaves, blue background"</p>
-            <img src="materials/image3_1.png" alt="Image 7">
-            <img src="materials/image3_2.png" alt="Image 8">
-            <img src="materials/image3_3.png" alt="Image 9">
-        </div>
-        <div class="group">
-            <p class="prompt">"yellow small flowers and leaves, blue background"</p>
-            <img src="materials/image4_1.png" alt="Image 10">
-            <img src="materials/image4_2.png" alt="Image 11">
-            <img src="materials/image4_3.png" alt="Image 12">
-        </div>
-        <div class="group">
-            <p class="prompt">other floral patterns</p>
-            <img src="materials/image5_1.png" alt="Image 13">
-            <img src="materials/image5_2.png" alt="Image 14">
-            <img src="materials/image5_3.png" alt="Image 15">
-        </div>
+      </div>
     </div>
 
-    <h2>References and Related Links</h2>
-    <div class="references">
-        <a href="https://huggingface.co/stabilityai/sdxl-turbo/tree/main" target="_blank">SDXL-turbo</a>
-        <a href="https://huggingface.co/black-forest-labs/FLUX.1-dev" target="_blank">FLUX</a>
-    </div>
+    <!-- Footer -->
+    <footer class="container" >
+      <br><hr>
+      <!--<div class="row" style="text-align: center">
+        © modified from 2022-2023 Zudi Lin's website
+        Zhexin Liang
+      </div>-->
+     
+      <div class="footer_social" style= "text-align: center; margin-left: 275px;">
+        <span style="display:inline; font-size: 2em; margin-right: 7px; color: #4a4a4a;">Xicheng Lan</span>
+        
+        <a href="https://github.com/Dongfengzy" target="_blank">
+          <span class="fab fa-github fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a;"></span>
+        </a>
+        <!-- <a href="https://scholar.google.com/citations?user=UyKX7ZsAAAAJ" target="_blank">
+          <span class="fab fa-google fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a; margin-left: 6px"></span>
+        </a>
+        <a href="https://www.linkedin.com/in/%E6%9C%88%E5%9D%A4-%E6%88%B4-19b33421a/" target="_blank">
+          <span class="fab fa-linkedin fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a; margin-left: 6px"></span>
+        </a> -->
+        <a href="lanxicheng@stu.pku.edu.cn" target="_blank">
+          <span class="fa-regular fa-envelope fa-2x" style="display:inline; text-decoration: none; color: #4a4a4a; margin-left: 6px"></span>
+        </a>
+        <div class="footer_social" style= "display:inline; float:right;  font-size: 2em;">
+          © modified from Yuekun Dai's website
+        </div>
+      
+ 
+    </footer>
+</section>
+
+  <script>
+
+    var $hashList = $('.menu-list a'), offsetList, maxScrollHeight;
+
+    $('#sidebar').on('click', 'a', function(){
+      activate($(this))
+    });
+    
+    $(window).on('resize', debounce(calculateBoundary, 300));
+
+    $(document).on('scroll', debounce(judgeScroll, 300));
+
+    calculateBoundary();
+    judgeScroll();
+    
+    function  calculateBoundary() {
+      offsetList = $hashList.map(function(idx, ele){
+        return $(ele.hash).offset().top
+      });
+      maxScrollHeight = $(document).height() - $(window).height()
+    }
+    
+    function judgeScroll() {
+      var tps = $("html").scrollTop()
+              ? $("html").scrollTop()
+              : $("body").scrollTop(),
+              len = offsetList.length;
+      if(tps >= maxScrollHeight-10){
+        activate($hashList.eq(len-1));
+        return
+      }
+      for(var i=0; i<len; i++){
+       if(tps+50<offsetList[i]){
+          activate($hashList.eq(Math.max(0,i-1)));
+          return
+        }
+      }
+    }
+
+    function activate(ele){
+      $hashList.removeClass('is-active');
+      ele.addClass('is-active');
+    }
+
+    function debounce(fn, delay) {
+      var timeout = null;
+      return function () {
+        var args = arguments;
+        var context = this;
+        if (!timeout) {
+          timeout = setTimeout(function () {
+            timeout = 0;
+            return fn.apply(context, args);
+          }, delay);
+        }
+      };
+    }
+
+
+
+  </script>
+
 
 </body>
+
 </html>
